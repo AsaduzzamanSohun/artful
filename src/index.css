@@ -1,3 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+
+.font-poppins {
+    font-family: "Poppins", sans-serif;
+}
+
+.font-rubik {
+    font-family: "Rubik", sans-serif;
+}
+
+
+.text-green-fair {
+    color: #E0FFCD;
+}
+.text-neon {
+    color: #0FFF50;
+}
+.text-green-1{
+    color: #3D9900;
+}
+.text-green-2{
+    color: #338000;
+}
+.text-green-3{
+    color: #1F4D00;
+}
+
+
+.text-indigo-0{
+    color: #aab1e5;
+}
+.text-indigo-1{
+    color: #9683ec;
+}
+.text-indigo-2{
+    color: #7630ff;
+}
+.text-indigo-3{
+    color: #7e21d4;
+}
+.text-indigo-4{
+    color: #4b0082;
+}
+.text-indigo-5{
+    color: #3f0081;
+}
+.text-indigo-6{
+    color: #21004b;
+}
+
+
+/* ------------------------------ background color ---------------------------- */
+
+.bg-green-fair {
+    background-color: #E0FFCD;
+}
+.bg-neon {
+    background-color: #0FFF50;
+}
+.bg-green {
+    background-color: #008000;
+}
+.bg-darkgreen {
+    background-color: #116530;
+}
+
+.bg-red {
+    background-color: #FF5C00;
+}
+
+.bg-indigo-0{
+    background-color: #aab1e5;
+}
+.bg-indigo-1{
+    background-color: #9683ec;
+}
+.bg-indigo-2{
+    background-color: #7630ff;
+}
+.bg-indigo-3{
+    background-color: #7e21d4;
+}
+.bg-indigo-4{
+    background-color: #4b0082;
+}
+.bg-indigo-5{
+    background-color: #3f0081;
+}
+.bg-indigo-6{
+    background-color: #21004b;
+}
+
+
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

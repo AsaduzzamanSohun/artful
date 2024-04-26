@@ -1,8 +1,10 @@
+import Slider from "../../Components/Slider";
 
 const Home = () => {
     return (
-        <div>
-            <h1>ArtFul</h1>
+        <div className="font-poppins">
+            
+           <Slider></Slider>
         </div>
     );
 };
