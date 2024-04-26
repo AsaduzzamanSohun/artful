@@ -55,16 +55,16 @@ const Navbar = () => {
 
                 <div onClick={() => setOpen(!open)} className="md:hidden">
 
-                    <div className="text-3xl text-light-green ">
+                    <div className="text-3xl text-neon ">
                         {
                             open ? <TfiClose /> : <CiMenuFries />
                         }
                     </div>
 
-                    <div className={`absolute bg-light w-full start-0 px-3 py-6 text-base -z-10 
-                    ${!open ? `-top-96 duration-[1000ms]`
+                    <div className={`absolute bg-indigo-6 w-full start-0 px-3 py-6 text-base z-50  
+                    ${!open ? `-start-[1000px] duration-[1000ms]`
                             : 'top-10 duration-1000'}`}>
-                        <ul className="text-green space-y-2 font-light">
+                        <ul className="space-y-2 font-light">
                             {
                                 link
                             }
@@ -75,13 +75,13 @@ const Navbar = () => {
 
                 </div>
             </nav>
-
+{/* 
             <div>
                 {
-                    open ? <h1 className=" mt-[190px] bg-blue-600 duration-1000"></h1>
-                        : <h1 className="duration-[470ms]"></h1>
+                    open ? <h1 className=" mt-[200px] duration-[2000m"></h1>
+                        : <h1 className="duration-[1000ms]"></h1>
                 }
-            </div>
+            </div> */}
 
         </>
 

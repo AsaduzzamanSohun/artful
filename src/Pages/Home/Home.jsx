@@ -1,10 +1,14 @@
-import Slider from "../../Components/Slider";
+import Banner from "../../Components/Banner";
 
 const Home = () => {
     return (
         <div className="font-poppins">
+
+            <Banner></Banner>
+
+
+
             
-           <Slider></Slider>
         </div>
     );
 };
