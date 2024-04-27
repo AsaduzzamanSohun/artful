@@ -1,17 +1,18 @@
-import ArtItems from "../../Components/ArtItems";
+import ArtItems from "./ArtItems";
 import Banner from "../../Components/Banner";
 import Welcome from "../../Components/Welcome";
 
 const Home = () => {
+
     return (
-        <div className="font-poppins">
+        <main className="font-poppins">
 
             <Banner></Banner>
             <Welcome></Welcome>
             <ArtItems></ArtItems>
 
 
-        </div>
+        </main>
     );
 };
 
