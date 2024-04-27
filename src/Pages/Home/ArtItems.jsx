@@ -3,13 +3,15 @@
 // import { RiStarSFill } from "react-icons/ri";
 import { useLoaderData } from "react-router-dom";
 import ArtItemCard from "../../Components/ArtItemCard";
-
-
+import { useState } from "react";
 
 
 const ArtItems = () => {
 
     const loadedItems = useLoaderData();
+    const [items, setItems] = useState(loadedItems)
+
+
 
     return (
         <div className="max-w-[1536px] mx-auto my-20">
@@ -21,9 +23,11 @@ const ArtItems = () => {
                 <div className="grid md:grid-cols-2 xl:grid-cols-3 xl:gap-4">
 
                     {
-                        loadedItems.slice(0, 6).map(item => <ArtItemCard
+                        items.slice(0, 6).map(item => <ArtItemCard
                             key={item._id}
-                            item={item}>
+                            item={item}
+                            items={items}
+                            setItems={setItems}>
                         </ArtItemCard>)
                     }
 

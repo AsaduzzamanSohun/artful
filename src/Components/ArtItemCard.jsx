@@ -1,14 +1,57 @@
 import { MdArrowForward, MdDelete, MdEdit } from "react-icons/md";
 import { RiStarSFill } from "react-icons/ri";
 import PropTypes from "prop-types";
+import Swal from "sweetalert2";
 
-const ArtItemCard = ({item}) => {
+const ArtItemCard = ({ item, items, setItems }) => {
 
 
-    const { image, name, subcategory, description, price } = item;
+    const { _id, image, name, subcategory, description, price } = item;
 
-    console.log(item);
 
+    const handleDelete = _id => {
+
+        Swal.fire({
+            title: "Are you sure?",
+            text: "Are you want to delete this item?!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+
+            if (result.isConfirmed) {
+                Swal.fire(
+                    {
+                        title: "Deleted!",
+                        text: "Item has been deleted.",
+                        icon: "success"
+                    }
+                );
+                fetch(`http://localhost:5000/crafts/${_id}`, {
+                    method: "DELETE"
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        const remaining = items.filter(deleted => deleted._id !== _id)
+                        setItems(remaining)
+
+                    })
+
+
+
+            }
+
+
+
+
+        });
+
+
+
+    }
 
     return (
         <div className="max-w-96 border m-4">
@@ -33,7 +76,7 @@ const ArtItemCard = ({item}) => {
                 <div className="flex justify-between items-center">
                     <div className="space-x-3 flex items-center">
                         <span className="text-blue-500 text-lg bg-blue-100 p-2 rounded-full hover:scale-110 duration-700 cursor-pointer"><MdEdit /></span>
-                        <span className="text-red-500 text-lg bg-red-100 p-2 rounded-full hover:scale-110 duration-700 cursor-pointer"><MdDelete></MdDelete></span>
+                        <span onClick={() => handleDelete(_id)} className="text-red-500 text-lg bg-red-100 p-2 rounded-full hover:scale-110 duration-700 cursor-pointer"><MdDelete></MdDelete></span>
                     </div>
                     <div className="flex">
                         <span className="text-indigo-500 text-lg bg-indigo-100 p-2 rounded-full hover:scale-110 duration-700 cursor-pointer"><MdArrowForward /></span>
@@ -47,5 +90,7 @@ const ArtItemCard = ({item}) => {
 export default ArtItemCard;
 
 ArtItemCard.propTypes = {
-    item: PropTypes.object
+    item: PropTypes.object,
+    items: PropTypes.array,
+    setItems: PropTypes.func
 }
