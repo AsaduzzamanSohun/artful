@@ -6,6 +6,8 @@ import AllArts from "../Pages/AllArts/AllArts";
 import MyArts from "../Pages/MyArts/MyArts";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import EditItems from "../layouts/EditItems";
+import Details from "../Pages/Details/Details";
 
 
 const router = createBrowserRouter([
@@ -37,6 +39,16 @@ const router = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path: '/edit-item/:id',
+                element: <EditItems></EditItems>,
+                loader: ({params}) => fetch(`http://localhost:5000/crafts/${params.id}`)
+            },
+            {
+                path: '/details/:id',
+                element: <Details></Details>,
+                loader: ({params}) => fetch(`http://localhost:5000/crafts/${params.id}`)
             }
         ]
     }

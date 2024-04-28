@@ -62,7 +62,7 @@ const Navbar = () => {
                     </div>
 
                     <div className={`absolute bg-indigo-6 w-full start-0 px-3 py-6 text-base z-50  
-                    ${!open ? `-left-[1000px] duration-[1000ms]`
+                    ${!open ? `-left-[2000px] duration-[1000ms]`
                             : 'top-10 duration-1000'}`}>
                         <ul className="space-y-2 font-light">
                             {

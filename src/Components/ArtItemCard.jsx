@@ -2,12 +2,11 @@ import { MdArrowForward, MdDelete, MdEdit } from "react-icons/md";
 import { RiStarSFill } from "react-icons/ri";
 import PropTypes from "prop-types";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const ArtItemCard = ({ item, items, setItems }) => {
 
-
     const { _id, image, name, subcategory, description, price } = item;
-
 
     const handleDelete = _id => {
 
@@ -39,18 +38,8 @@ const ArtItemCard = ({ item, items, setItems }) => {
                         setItems(remaining)
 
                     })
-
-
-
             }
-
-
-
-
         });
-
-
-
     }
 
     return (
@@ -75,11 +64,11 @@ const ArtItemCard = ({ item, items, setItems }) => {
 
                 <div className="flex justify-between items-center">
                     <div className="space-x-3 flex items-center">
-                        <span className="text-blue-500 text-lg bg-blue-100 p-2 rounded-full hover:scale-110 duration-700 cursor-pointer"><MdEdit /></span>
+                        <Link to={`edit-item/${_id}`} className="text-blue-500 text-lg bg-blue-100 p-2 rounded-full hover:scale-110 duration-700 cursor-pointer"><MdEdit /></Link>
                         <span onClick={() => handleDelete(_id)} className="text-red-500 text-lg bg-red-100 p-2 rounded-full hover:scale-110 duration-700 cursor-pointer"><MdDelete></MdDelete></span>
                     </div>
                     <div className="flex">
-                        <span className="text-indigo-500 text-lg bg-indigo-100 p-2 rounded-full hover:scale-110 duration-700 cursor-pointer"><MdArrowForward /></span>
+                        <Link to={`/details/${_id}`} className="text-indigo-500 text-lg bg-indigo-100 p-2 rounded-full hover:scale-110 duration-700 cursor-pointer"><MdArrowForward /></Link>
                     </div>
                 </div>
             </div>
