@@ -54,7 +54,7 @@ const Register = () => {
 
                                     <div>
                                         <input
-                                            className="w-full bg-indigo-700 font-semibold text-indigo-200 py-3 mt-3 border-2 border-indigo-700 hover:bg-transparent duration-500 hover:border-2 hover:text-white hover:border-indigo-700"
+                                            className="w-full bg-indigo-700 font-semibold text-indigo-200 py-3 mt-3 border-2 border-indigo-700 hover:bg-transparent duration-500 hover:border-2 hover:text-white hover:border-indigo-700 cursor-pointer"
                                             type="submit"
                                             value='Sign up' />
                                     </div>
