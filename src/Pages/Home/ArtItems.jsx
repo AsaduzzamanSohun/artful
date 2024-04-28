@@ -1,15 +1,21 @@
 // import { MdDelete, MdEdit } from "react-icons/md";
 // import { MdArrowForward } from "react-icons/md";
 // import { RiStarSFill } from "react-icons/ri";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigation } from "react-router-dom";
 import ArtItemCard from "../../Components/ArtItemCard";
 import { useState } from "react";
+import Loader from "../../Components/Loader";
 
 
 const ArtItems = () => {
 
+    const navigation = useNavigation();
+
     const loadedItems = useLoaderData();
     const [items, setItems] = useState(loadedItems)
+
+    if(navigation.state === 'loading') return <Loader></Loader>
+
 
 
 

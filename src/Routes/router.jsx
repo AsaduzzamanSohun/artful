@@ -18,7 +18,7 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/crafts')
+                loader: () => fetch('https://artful-server.vercel.app/crafts')
             },
             {
                 path: '/add_arts',
@@ -26,7 +26,8 @@ const router = createBrowserRouter([
             },
             {
                 path: '/all_arts',
-                element: <AllArts></AllArts>
+                element: <AllArts></AllArts>,
+                loader: () => fetch('https://artful-server.vercel.app/crafts')
             },
             {
                 path: '/my_arts',
@@ -43,12 +44,12 @@ const router = createBrowserRouter([
             {
                 path: '/edit-item/:id',
                 element: <EditItems></EditItems>,
-                loader: ({params}) => fetch(`http://localhost:5000/crafts/${params.id}`)
+                loader: ({params}) => fetch(`https://artful-server.vercel.app/crafts/${params.id}`)
             },
             {
                 path: '/details/:id',
                 element: <Details></Details>,
-                loader: ({params}) => fetch(`http://localhost:5000/crafts/${params.id}`)
+                loader: ({params}) => fetch(`https://artful-server.vercel.app/crafts/${params.id}`)
             }
         ]
     }

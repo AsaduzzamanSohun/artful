@@ -31,7 +31,7 @@ const AddArts = () => {
 
         console.log(items);
 
-        fetch('http://localhost:5000/crafts', {
+        fetch('https://artful-server.vercel.app/crafts', {
             method: 'POST',
             headers: {
                 "content-type": "application/json"

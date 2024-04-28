@@ -6,7 +6,10 @@ import { Link } from "react-router-dom";
 
 const ArtItemCard = ({ item, items, setItems }) => {
 
+    
     const { _id, image, name, subcategory, description, price } = item;
+
+    
 
     const handleDelete = _id => {
 
@@ -28,7 +31,7 @@ const ArtItemCard = ({ item, items, setItems }) => {
                         icon: "success"
                     }
                 );
-                fetch(`http://localhost:5000/crafts/${_id}`, {
+                fetch(`https://artful-server.vercel.app/crafts/${_id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())
