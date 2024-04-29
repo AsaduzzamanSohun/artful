@@ -1,13 +1,57 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { CiMenuFries } from "react-icons/ci";
 import { TfiClose } from "react-icons/tfi";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
+
 
 
 
 const Navbar = () => {
 
     const [open, setOpen] = useState(false);
+
+    const { user, logout, } = useContext(AuthContext);
+
+    const [loading, setLoading] = useState(true);
+    const [photoURL, setPhotoURL] = useState(null);
+    const [isHovered, setIsHovered] = useState(false);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            if (user && user.photoURL) {
+                setPhotoURL(user.photoURL);
+            } else {
+                setPhotoURL('https://i.ibb.co/9WfLbkH/user.png');
+            }
+            setLoading(false);
+        }, 1000);
+
+        return () => clearTimeout(timer);
+    }, [user]);
+
+    console.log(photoURL, loading);
+
+    const handleMouseEnter = () => {
+        setIsHovered(true);
+    };
+
+    const handleMouseLeave = () => {
+        setIsHovered(false);
+    }
+
+    const navLogout = () => {
+        logout()
+            .then(() => {
+
+            })
+            .catch(() => {
+            })
+    }
+
+
+
+
 
     const link = <>
 
@@ -21,35 +65,137 @@ const Navbar = () => {
             <NavLink className={({ isActive }) => isActive ? `text-neon border-b-2 border-[#A3FF66]` : `text-green-fair`} to='/add_arts'>Add Craft Item</NavLink>
         </li>
         <li>
-            <NavLink className={({ isActive }) => isActive ? `text-neon border-b-2 border-[#A3FF66]` : `text-green-fair`} to='/my_arts'>My Art&Craft</NavLink>
+            {user
+                &&
+                <NavLink className={({ isActive }) => isActive ? `text-neon border-b-2 border-[#A3FF66]` : `text-green-fair`} to='/my_arts'>My Art&Craft</NavLink>
+            }
         </li>
-        <li>
-            <NavLink className={({ isActive }) => isActive ? `text-neon border-b-2 border-[#A3FF66]` : `text-green-fair`} to='/login'>
-                Login
-            </NavLink>
-        </li>
-        <li >
-            <NavLink className={({ isActive }) => isActive ? `text-neon border-b-2 border-[#A3FF66]` : `text-green-fair`} to='/register'>
-                Register
-            </NavLink>
-        </li>
+
+        {/* <li>
+
+            {
+                user ?
+                    <Link onClick={navLogout} className={({ isActive }) => isActive ? `text-neon border-b-2 border-[#A3FF66]` : `text-green-fair`} to='/'>
+                        Logout
+                    </Link>
+
+                    :
+
+                    <div className="flex items-center">
+                        <Link
+                            className={`px-4 py-1 bg-transparent text-indigo-200 border-r hover:bg-indigo-200 hover:text-indigo-900 duration-700 hover:border-indigo-900`}
+                            to='/login'>
+                            Login
+                        </Link>
+
+                        <Link
+                            className={`px-4 py-1 bg-transparent text-indigo-200 hover:bg-indigo-200 hover:text-indigo-900 duration-700 hover:border-indigo-900`}
+                            to='/register'>
+                            Register
+                        </Link>
+
+                    </div>
+            }
+
+        </li> */}
 
     </>
 
     return (
         <>
             <nav className="flex items-center justify-between p-2 md:px-6 md:py-4  bg-indigo-700">
-                <div>
+                <Link to='/'>
                     <img className="w-24 lg:w-36" src="https://i.ibb.co/b6G8gnh/artful-4-tr.png" alt="" />
-                </div>
+                </Link>
 
-                <div className="hidden md:block">
+                <div className="hidden md:flex items-center gap-12 xl:gap-24">
 
                     <ul className="flex gap-4 lg:gap-8 xl:gap-10 text-xs lg:text-base font-bold">
                         {
                             link
                         }
                     </ul>
+
+                    <div>
+
+                        {
+                            user ?
+
+                                <div className="dropdown dropdown-end z-40">
+                                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle ">
+                                        <div className="relative">
+                                            <img
+                                                src={user ? user.photoURL : user.photoURL}
+                                                alt=""
+                                                onMouseEnter={handleMouseEnter}
+                                                onMouseLeave={handleMouseLeave}
+                                                className="w-10 h-10 rounded-full inline-flex hover:cursor-pointer ring-green-500 ring-4"
+                                            />
+                                            {isHovered &&
+                                                <div
+                                                    className="absolute -bottom-8 left-1/2 
+                                                    transform -translate-x-1/2 bg-green-900 
+                                                    bg-opacity-60 text-indigo-100 px-2 py-1 
+                                                    rounded z-40 font-bold">
+
+                                                    {user?.displayName ? user.displayName : ""}
+
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+                                    <ul
+                                        tabIndex={0}
+                                        className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 w-32">
+                                        <li>
+                                            {user ?
+
+                                                <Link onClick={navLogout}
+                                                    className="cursor-pointer bg-indigo-50 font-semibold rounded-none text-indigo-700 hover:bg-indigo-100 
+                                                    hover:text-indigo-800"
+                                                    to='/'>
+                                                    Logout
+                                                </Link>
+                                                :
+                                                <Link
+                                                    className="bg-indigo-100 font-semibold 
+                                                    border-2 text-indigo-900 px-4 py-1 
+                                                    hover:bg-transparent duration-700 
+                                                    hover:border-2 hover:text-indigo-100 
+                                                    hover:border-indigo-100 
+                                                    border-indigo-950"
+                                                    to='/login'>
+                                                    <button>Login </button>
+                                                </Link>
+
+                                            }
+                                        </li>
+
+                                    </ul>
+                                </div>
+
+                                :
+
+                                <>
+                                    <Link
+                                        className="bg-indigo-100 font-semibold border-2 text-indigo-900 px-4 py-1 hover:bg-transparent duration-700 hover:border-2 hover:text-indigo-100 
+                                        hover:border-indigo-100 border-indigo-950"
+                                        to='/login'>
+                                        <button>Login </button>
+                                    </Link>
+
+                                    <Link
+                                        className="bg-indigo-100 font-semibold border-2 
+                                        text-indigo-900 px-4 py-1 hover:bg-transparent 
+                                        duration-700 hover:border-2 hover:text-indigo-100 
+                                        hover:border-indigo-100 border-indigo-950"
+                                        to='/register'>
+                                        <button > Register</button>
+                                    </Link>
+                                </>
+                        }
+
+                    </div>
                 </div>
 
 
@@ -62,7 +208,7 @@ const Navbar = () => {
                     </div>
 
                     <div className={`absolute bg-indigo-6 w-full start-0 px-3 py-6 text-base z-50  
-                    ${!open ? `-left-[2000px] duration-[1000ms]`
+                    ${!open ? `-top-[1000px] duration-[1000ms]`
                             : 'top-10 duration-1000'}`}>
                         <ul className="space-y-2 font-light">
                             {
@@ -70,12 +216,9 @@ const Navbar = () => {
                             }
                         </ul>
                     </div>
-
-
-
                 </div>
             </nav>
-{/* 
+            {/* 
             <div>
                 {
                     open ? <h1 className=" mt-[200px] duration-[2000m"></h1>
@@ -89,3 +232,5 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+

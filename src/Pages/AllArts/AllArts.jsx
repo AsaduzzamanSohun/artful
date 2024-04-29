@@ -1,13 +1,18 @@
 import { useLoaderData, useNavigation } from "react-router-dom";
 import ArtItemCard from "../../Components/ArtItemCard";
-import { useState } from "react";
+import {  useEffect, useState } from "react";
 import Loader from "../../Components/Loader";
 
 const AllArts = () => {
 
+
     const navigation = useNavigation();
     const allLoadedItems = useLoaderData();
     const [items, setItems] = useState(allLoadedItems);
+
+    useEffect(() => {
+        document.title = "All Arts and Crafts - Artful"
+    } , [])
 
     if(navigation.state === 'loading') return <Loader></Loader>
 

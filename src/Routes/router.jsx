@@ -8,6 +8,7 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import EditItems from "../layouts/EditItems";
 import Details from "../Pages/Details/Details";
+import PrivateRoutes from "./PrivateRoutes";
 
 
 const router = createBrowserRouter([
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/add_arts',
-                element: <AddArts></AddArts>
+                element: <PrivateRoutes><AddArts></AddArts></PrivateRoutes>
             },
             {
                 path: '/all_arts',
@@ -31,7 +32,8 @@ const router = createBrowserRouter([
             },
             {
                 path: '/my_arts',
-                element: <MyArts></MyArts>
+                element: <PrivateRoutes> <MyArts></MyArts></PrivateRoutes>,
+                loader: () => fetch('https://artful-server.vercel.app/crafts')
             },
             {
                 path: '/login',
@@ -43,13 +45,13 @@ const router = createBrowserRouter([
             },
             {
                 path: '/edit-item/:id',
-                element: <EditItems></EditItems>,
-                loader: ({params}) => fetch(`https://artful-server.vercel.app/crafts/${params.id}`)
+                element: <PrivateRoutes><EditItems></EditItems></PrivateRoutes>,
+                loader: ({ params }) => fetch(`https://artful-server.vercel.app/crafts/${params.id}`)
             },
             {
                 path: '/details/:id',
-                element: <Details></Details>,
-                loader: ({params}) => fetch(`https://artful-server.vercel.app/crafts/${params.id}`)
+                element: <PrivateRoutes><Details></Details></PrivateRoutes>,
+                loader: ({ params }) => fetch(`https://artful-server.vercel.app/crafts/${params.id}`)
             }
         ]
     }

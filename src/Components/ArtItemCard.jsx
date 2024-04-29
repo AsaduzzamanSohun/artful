@@ -3,13 +3,16 @@ import { RiStarSFill } from "react-icons/ri";
 import PropTypes from "prop-types";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+// import { useContext } from "react";
+// import { AuthContext } from "../Provider/AuthProvider";
 
 const ArtItemCard = ({ item, items, setItems }) => {
 
-    
+    // const { user } = useContext(AuthContext)
+
     const { _id, image, name, subcategory, description, price } = item;
 
-    
+
 
     const handleDelete = _id => {
 
@@ -67,11 +70,16 @@ const ArtItemCard = ({ item, items, setItems }) => {
 
                 <div className="flex justify-between items-center">
                     <div className="space-x-3 flex items-center">
-                        <Link to={`edit-item/${_id}`} className="text-blue-500 text-lg bg-blue-100 p-2 rounded-full hover:scale-110 duration-700 cursor-pointer"><MdEdit /></Link>
+
+                        <Link to={`/edit-item/${_id}`} className="text-blue-500 text-lg bg-blue-100 p-2 rounded-full hover:scale-110 duration-700 cursor-pointer"><MdEdit /></Link>
+
                         <span onClick={() => handleDelete(_id)} className="text-red-500 text-lg bg-red-100 p-2 rounded-full hover:scale-110 duration-700 cursor-pointer"><MdDelete></MdDelete></span>
+
                     </div>
                     <div className="flex">
+
                         <Link to={`/details/${_id}`} className="text-indigo-500 text-lg bg-indigo-100 p-2 rounded-full hover:scale-110 duration-700 cursor-pointer"><MdArrowForward /></Link>
+
                     </div>
                 </div>
             </div>

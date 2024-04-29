@@ -1,6 +1,7 @@
 import { useLoaderData, useNavigate, useNavigation } from "react-router-dom";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
 import Loader from "../../Components/Loader";
+import { useEffect } from "react";
 
 
 const Details = () => {
@@ -10,6 +11,10 @@ const Details = () => {
 
 
     const details = useLoaderData();
+
+    useEffect(() => {
+        document.title = 'Details - Artful'
+    } , []);
 
     if (navigation.state === 'loading') return <Loader></Loader>
 

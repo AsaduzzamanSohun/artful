@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -5,7 +6,12 @@ const EditItems = () => {
 
     const items = useLoaderData();
 
-    const { _id, image, name, subcategory, description, price, rating, customization, process_time, status, email, username } = items
+    const { _id, image, name, subcategory, description, price, rating, customization, process_time, status, email, username } = items;
+
+
+    useEffect(() => {
+        document.title = 'Edit Item - Artful';
+    } , [])
 
 
     const handleEditItem = e => {

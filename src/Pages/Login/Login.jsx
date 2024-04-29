@@ -1,14 +1,85 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
-import { FaEye, FaEyeSlash, FaGithub } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
+
+    useEffect(() => {
+        document.title = "Login - Artful"
+    }, []);
+
+    const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext);
+
+
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const [showPassword, setShowPassword] = useState(true);
+    const notifySuccess = (success) => toast.success(success)
+    const notifyError = (error) => toast.error(error)
+
+
+    const handleLogin = e => {
+        e.preventDefault();
+
+        const form = new FormData(e.currentTarget)
+
+        const email = form.get("email");
+        const password = form.get("password");
+
+        e.target.reset();
+
+
+
+        signIn(email, password)
+            .then(() => {
+                notifySuccess("Login Successfully!");
+                navigate(location?.state ? location.state : '/');
+            })
+            .catch(() => {
+
+                notifyError("User not found")
+            })
+    }
+
+
+    const handleGoogleSignIn = () => {
+        const provider = new GoogleAuthProvider();
+        googleSignIn(provider)
+            .then(() => {
+                notifySuccess("Login Successfully!");
+                navigate(location?.state ? location.state : '/');
+
+            })
+            .catch(error => {
+                console.error(error);
+            })
+    }
+
+
+    const handleGithubSignIn = () => {
+        const provider = new GithubAuthProvider();
+        githubSignIn(provider)
+            .then(() => {
+                notifySuccess("Login Successfully!");
+                navigate(location?.state ? location.state : '/');
+
+            })
+            .catch(error => console.error(error))
+    }
+
     return (
         <div className={` bg-[url('https://i.ibb.co/87P5DHm/Polygon-Luminary-1.png')] bg-no-repeat bg-cover `}>
             <div className="max-w-[1536px] mx-auto min-h-[calc(100vh-112px-75.58px)] flex justify-center items-center">
                 <div className="font-rubik bg-indigo-100 bg-opacity-40 p-10 lg:p-20 ">
 
-                    <form>
+                    <form onSubmit={handleLogin}>
 
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
@@ -28,17 +99,27 @@ const Login = () => {
                                     <div>
                                         <input
                                             className=" font-medium border-b-2 border-indigo-300 py-3 px-4 my-3 focus:outline-none focus:border-b-2 placeholder-indigo-300 focus:border-indigo-700 w-full"
+                                            name="email"
                                             type="email"
                                             placeholder="Email"
                                             required />
                                     </div>
 
-                                    <div>
+                                    <div className="relative">
                                         <input
                                             className=" font-medium border-b-2 border-indigo-300 py-3 px-4 my-3 focus:outline-none focus:border-b-2 placeholder-indigo-300 focus:border-indigo-700 w-full"
-                                            type="password"
+                                            type={showPassword ? 'password' : 'text'}
+                                            name="password"
                                             placeholder="Password"
                                             required />
+
+                                        <div
+                                            onClick={() => setShowPassword(!showPassword)} className="absolute right-4 top-7">
+                                            {
+                                                showPassword ? <FaEye className="text-[#2ed9ff]"></FaEye> : <FaEyeSlash className="text-[#28d8ff]"></FaEyeSlash>
+                                            }
+                                        </div>
+
                                     </div>
 
                                     <div>
@@ -55,8 +136,8 @@ const Login = () => {
                                     </div>
 
                                     <div className="flex text-3xl justify-center gap-4 pt-4">
-                                        <Link to=""><FcGoogle className="hover:scale-110 duration-700 cursor-pointer" /></Link>
-                                        <Link to=""><FaGithub className="hover:scale-110 duration-700 cursor-pointer" /></Link>
+                                        <Link onClick={handleGoogleSignIn} to=""><FcGoogle className="hover:scale-110 duration-700 cursor-pointer" /></Link>
+                                        <Link onClick={handleGithubSignIn} to=""><FaGithub className="hover:scale-110 duration-700 cursor-pointer" /></Link>
                                     </div>
 
                                 </div>
