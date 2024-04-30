@@ -103,10 +103,13 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className="flex items-center justify-between p-2 md:px-6 md:py-4  bg-indigo-700">
+
+        <nav className="w-screen fixed z-50">
+        <div className="flex items-center justify-between p-2 md:px-6 md:py-4  bg-indigo-700 ">
                 <Link to='/'>
                     <img className="w-24 lg:w-36" src="https://i.ibb.co/b6G8gnh/artful-4-tr.png" alt="" />
                 </Link>
+
 
                 <div className="hidden md:flex items-center gap-12 xl:gap-24">
 
@@ -114,7 +117,15 @@ const Navbar = () => {
                         {
                             link
                         }
+
+                        <li>
+
+                            <input type="checkbox" value="synthwave" className="toggle theme-controller bg-amber-300 border-sky-400 [--tglbg:theme(colors.sky.500)] checked:bg-blue-300 checked:border-blue-800 checked:[--tglbg:theme(colors.blue.900)] row-start-1 col-start-1 col-span-2" />
+
+                        </li>
                     </ul>
+
+
 
                     <div>
 
@@ -207,7 +218,7 @@ const Navbar = () => {
                         }
                     </div>
 
-                    <div className={`absolute bg-indigo-6 w-full start-0 px-3 py-6 text-base z-50  
+                    <div className={`absolute bg-indigo-6 w-full start-0 px-3 py-6 text-base -z-50  
                     ${!open ? `-top-[1000px] duration-[1000ms]`
                             : 'top-10 duration-1000'}`}>
                         <ul className="space-y-2 font-light">
@@ -217,7 +228,9 @@ const Navbar = () => {
                         </ul>
                     </div>
                 </div>
-            </nav>
+            </div>
+        </nav>
+            
             {/* 
             <div>
                 {
