@@ -9,12 +9,14 @@ import Register from "../Pages/Register/Register";
 import EditItems from "../layouts/EditItems";
 import Details from "../Pages/Details/Details";
 import PrivateRoutes from "./PrivateRoutes";
+import ErrorPage from "../Error/ErrorPage";
 
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Root></Root>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: "/",
