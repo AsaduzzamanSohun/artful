@@ -4,9 +4,6 @@ import { TfiClose } from "react-icons/tfi";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 
-
-
-
 const Navbar = () => {
 
     const [theme, setTheme] = useState('light');
@@ -15,7 +12,7 @@ const Navbar = () => {
         localStorage.setItem('theme', theme)
         const localTheme = localStorage.getItem('theme');
         document.querySelector('html').setAttribute('data-theme', localTheme)
-    } , [theme])
+    }, [theme])
 
     const handleToggle = e => {
         if (e.target.checked) {
@@ -25,8 +22,6 @@ const Navbar = () => {
         }
 
     }
-
-    
 
 
     const [open, setOpen] = useState(false);
@@ -76,48 +71,45 @@ const Navbar = () => {
     const link = <>
 
         <li>
-            <NavLink className={({ isActive }) => isActive ? `text-neon border-b-2 border-[#A3FF66]` : `text-green-fair`} to='/'>Home</NavLink>
+            <NavLink className={({ isActive }) => isActive ? `text-indigo-700 border-b-2 border-indigo-700` : `text-indigo-400`} to='/'>Home</NavLink>
         </li>
         <li>
-            <NavLink className={({ isActive }) => isActive ? `text-neon border-b-2 border-[#A3FF66]` : `text-green-fair`} to='/all_arts'>All Art & Craft</NavLink>
+            <NavLink className={({ isActive }) => isActive ? `text-indigo-700 border-b-2 border-indigo-700` : `text-indigo-400`} to='/all_arts'>All Art & Craft</NavLink>
         </li>
         <li>
-            <NavLink className={({ isActive }) => isActive ? `text-neon border-b-2 border-[#A3FF66]` : `text-green-fair`} to='/add_arts'>Add Craft Item</NavLink>
+            <NavLink className={({ isActive }) => isActive ? `text-indigo-700 border-b-2 border-indigo-700` : `text-indigo-400`} to='/add_arts'>Add Craft Item</NavLink>
         </li>
         <li>
             {user
                 &&
-                <NavLink className={({ isActive }) => isActive ? `text-neon border-b-2 border-[#A3FF66]` : `text-green-fair`} to='/my_arts'>My Art&Craft</NavLink>
+                <NavLink className={({ isActive }) => isActive ? `text-indigo-700 border-b-2 border-indigo-700` : `text-indigo-400`} to='/my_arts'>My Art&Craft</NavLink>
+            }
+        </li>
+        <li className="md:hidden">
+            {user ?
+
+                <Link onClick={navLogout}
+                    className="cursor-pointer bg-indigo-50 font-semibold rounded-none text-indigo-700 hover:bg-indigo-100 
+                                                    hover:text-indigo-800"
+                    to='/'>
+                    Logout
+                </Link>
+                :
+                <Link
+                    className="bg-indigo-100 font-semibold 
+                                                    border-2 text-indigo-900 px-4 py-1 
+                                                    hover:bg-transparent duration-700 
+                                                    hover:border-2 hover:text-indigo-100 
+                                                    hover:border-indigo-100 
+                                                    border-indigo-950"
+                    to='/login'>
+                    <button>Login </button>
+                </Link>
+
             }
         </li>
 
-        {/* <li>
 
-            {
-                user ?
-                    <Link onClick={navLogout} className={({ isActive }) => isActive ? `text-neon border-b-2 border-[#A3FF66]` : `text-green-fair`} to='/'>
-                        Logout
-                    </Link>
-
-                    :
-
-                    <div className="flex items-center">
-                        <Link
-                            className={`px-4 py-1 bg-transparent text-indigo-200 border-r hover:bg-indigo-200 hover:text-indigo-900 duration-700 hover:border-indigo-900`}
-                            to='/login'>
-                            Login
-                        </Link>
-
-                        <Link
-                            className={`px-4 py-1 bg-transparent text-indigo-200 hover:bg-indigo-200 hover:text-indigo-900 duration-700 hover:border-indigo-900`}
-                            to='/register'>
-                            Register
-                        </Link>
-
-                    </div>
-            }
-
-        </li> */}
 
     </>
 
@@ -125,7 +117,7 @@ const Navbar = () => {
         <>
 
             <nav className="w-screen fixed shadow-xl z-50">
-                <div className="flex items-center justify-between p-2 md:px-6 md:py-4 bg-indigo-700 ">
+                <div className="flex items-center justify-between p-2 md:px-6 md:py-4 bg-slate-50 ">
                     <Link to='/'>
                         <img className="w-24 lg:w-36" src="https://i.ibb.co/b6G8gnh/artful-4-tr.png" alt="" />
                     </Link>
@@ -141,7 +133,7 @@ const Navbar = () => {
                             <li>
                                 {/* Theme Change Toggle */}
                                 <input
-                                onChange={handleToggle}
+                                    onChange={handleToggle}
                                     type="checkbox"
                                     value="synthwave"
                                     className="toggle theme-controller bg-amber-300 border-sky-400 [--tglbg:theme(colors.sky.500)] checked:bg-blue-300 checked:border-blue-800 checked:[--tglbg:theme(colors.blue.900)] row-start-1 col-start-1 col-span-2" />
@@ -168,7 +160,7 @@ const Navbar = () => {
                                                 />
                                                 {isHovered &&
                                                     <div
-                                                        className="absolute -bottom-8 left-1/2 
+                                                        className="absolute -bottom-8 left-1/4 
                                                     transform -translate-x-1/2 bg-green-900 
                                                     bg-opacity-60 text-indigo-100 px-2 py-1 
                                                     rounded z-40 font-bold">
@@ -242,7 +234,7 @@ const Navbar = () => {
                             }
                         </div>
 
-                        <div className={`absolute bg-indigo-6 w-full start-0 px-3 py-6 text-base -z-50  
+                        <div className={`absolute bg-slate-200  w-full start-0 px-3 py-6 text-base -z-50  
                     ${!open ? `-top-[1000px] duration-[1000ms]`
                                 : 'top-10 duration-1000'}`}>
                             <ul className="space-y-2 font-light">

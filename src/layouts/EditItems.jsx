@@ -1,8 +1,11 @@
 import { useEffect } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, ScrollRestoration, useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const EditItems = () => {
+
+    ScrollRestoration('/');
+
 
     const items = useLoaderData();
 

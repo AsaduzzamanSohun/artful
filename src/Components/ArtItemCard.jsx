@@ -49,7 +49,7 @@ const ArtItemCard = ({ item, items, setItems }) => {
     }
 
     return (
-        <div className="max-w-96 border m-4">
+        <div data-aos="fade-up" className="max-w-96 border m-4">
             <div className="relative">
                 <img className="w-full h-[260px] bg-contain" src={image} alt="" />
                 <span className="absolute bottom-0 bg-slate-600 text-sm text-white px-4 flex items-center">5 <RiStarSFill className="text-amber-400 text-xl" /></span>

@@ -4,6 +4,10 @@ import Welcome from "../../Components/Welcome";
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Loader from "../../Components/Loader";
+import Counter from "../../Components/Counter";
+import Services from "../../Components/Services";
+import SliderCard from "../../Components/SliderCard";
+import { ScrollRestoration } from "react-router-dom";
 
 const Home = () => {
 
@@ -13,6 +17,9 @@ const Home = () => {
         document.title = 'Home - Artful'
     }, []);
 
+    ScrollRestoration('/');
+
+
     if (loading) return <Loader></Loader>
 
 
@@ -21,9 +28,11 @@ const Home = () => {
         <main className="font-poppins">
 
             <Banner></Banner>
+            <Counter></Counter>
             <Welcome></Welcome>
             <ArtItems></ArtItems>
-
+            <Services></Services>
+            <SliderCard></SliderCard>
 
         </main>
     );

@@ -1,16 +1,22 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { Link, ScrollRestoration } from "react-router-dom";
 import { TypeAnimation } from "react-type-animation";
 import Swal from "sweetalert2";
 import Loader from "../../Components/Loader";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const AddArts = () => {
 
+    ScrollRestoration('/');
+
+
     const [loading, setLoading] = useState(false);
+    const {user} = useContext(AuthContext);
 
     useEffect(() => {
         document.title = 'Add Craft Item - Artful'
     } , []);
+    
 
     if (loading) return <Loader></Loader>
 
@@ -220,7 +226,7 @@ const AddArts = () => {
                                       mt-3 "
                                         type="text"
                                         name="status"
-                                        placeholder="Enter status"
+                                        placeholder="Enter status:In Stock / Stock Out"
                                         required />
                                 </div>
 
@@ -237,6 +243,7 @@ const AddArts = () => {
                                       mt-3 "
                                         type="email"
                                         name="email"
+                                        defaultValue={user.email}
                                         placeholder="Enter your email "
                                         required />
                                 </div>
@@ -247,6 +254,7 @@ const AddArts = () => {
                                       mt-3 "
                                         type="text"
                                         name="username"
+                                        defaultValue={user.displayName}
                                         placeholder="Enter your user name"
                                         required />
                                 </div>

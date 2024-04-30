@@ -76,7 +76,7 @@ const Login = () => {
 
     return (
         <div className={` bg-[url('https://i.ibb.co/87P5DHm/Polygon-Luminary-1.png')] bg-no-repeat bg-cover `}>
-            <div className="max-w-[1536px] mx-auto min-h-[calc(100vh-112px-75.58px)] flex justify-center items-center">
+            <div className="max-w-[1536px] mx-auto min-h-[calc(100vh-112px)] flex justify-center items-center">
                 <div className="font-rubik bg-indigo-100 bg-opacity-40 p-10 lg:p-20 ">
 
                     <form onSubmit={handleLogin}>

@@ -1,10 +1,12 @@
-import { useLoaderData, useNavigate, useNavigation } from "react-router-dom";
+import { ScrollRestoration, useLoaderData, useNavigate, useNavigation } from "react-router-dom";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
 import Loader from "../../Components/Loader";
 import { useEffect } from "react";
 
 
 const Details = () => {
+
+    ScrollRestoration('/');
 
     const navigation = useNavigation();
     const navigate = useNavigate()
@@ -31,9 +33,9 @@ const Details = () => {
 
     return (
         <div className="bg-gray-50">
-            <div className="max-w-[1536px] mx-auto  font-rubik">
+            <div className="max-w-[1536px] mx-auto py-20 font-rubik">
 
-                <div className="flex flex-col justify-center items-center min-h-[calc(100vh-112px-75.58px)] gap-4">
+                <div className="flex flex-col justify-center items-center min-h-[calc(100vh-112px)] gap-4">
 
                     <div className="max-w-[720px] m-1">
                         <div className="relative">

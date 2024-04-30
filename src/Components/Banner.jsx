@@ -48,7 +48,7 @@ const Banner = () => {
                         data-aos="fade-up"
                         data-aos-anchor-placement="center-bottom"
                         data-aos-duration="3000"
-                        className='absolute top-0 left-0 md:left-[200px] md:top-80 lg:left-80 lg:top-72 z-50 w-96 xl:left-[700px] xl:w-[500px]'>
+                        className='absolute top-10 left-0 md:left-[200px] md:top-80 lg:left-80 lg:top-36 z-50 w-96 xl:left-[700px] xl:w-[500px]'>
 
                         <p className='bg-[#aab1e5b9] text-indigo-5 p-10 xl:p-20 xl:text-lg'>
                             Welcome to ArtFull, your destination for captivating landscape paintings! Dive into our collection featuring stunning mountain views and serene forest landscapes. Let your walls tell a story with our handcrafted canvases. Order now and bring the beauty of nature into your home.
@@ -63,7 +63,7 @@ const Banner = () => {
                         data-aos="fade-right"
                         data-aos-anchor-placement="center-bottom"
                         data-aos-duration="3000"
-                        className='absolute top-0 left-0 md:left-[200px] md:top-80 lg:left-80 lg:top-72 z-50 w-96  xl:left-[700px]  xl:w-[500px]'>
+                        className='absolute top-10 left-0 md:left-[200px] md:top-80 lg:left-80 lg:top-36 z-50 w-96  xl:left-[700px]  xl:w-[500px]'>
 
                         <p className='bg-[#aab1e5b9] text-indigo-5 p-10 xl:p-20 xl:text-lg'>
                             Welcome to ArtFull, your destination for captivating landscape paintings! Dive into our collection featuring stunning mountain views and serene forest landscapes. Let your walls tell a story with our handcrafted canvases. Order now and bring the beauty of nature into your home.
@@ -78,7 +78,7 @@ const Banner = () => {
                         data-aos="fade-down"
                         data-aos-anchor-placement="center-bottom"
                         data-aos-duration="3000"
-                        className='absolute top-0 left-0 md:left-[200px] md:top-80 lg:left-80 lg:top-72 z-50 w-96 xl:left-[700px]  xl:w-[500px]'>
+                        className='absolute top-10 left-0 md:left-[200px] md:top-80 lg:left-80 lg:top-36 z-50 w-96 xl:left-[700px]  xl:w-[500px]'>
 
                         <p className='bg-[#aab1e5b9] text-indigo-5 p-10 xl:p-20 xl:text-lg'>
                             Welcome to ArtFull, your destination for captivating landscape paintings! Dive into our collection featuring stunning mountain views and serene forest landscapes. Let your walls tell a story with our handcrafted canvases. Order now and bring the beauty of nature into your home.
@@ -94,7 +94,7 @@ const Banner = () => {
                         data-aos="fade-up"
                         data-aos-anchor-placement="center-bottom"
                         data-aos-duration="3000"
-                        className='absolute top-0 left-0 md:left-[200px] md:top-80 lg:left-80 lg:top-72 z-50 w-96 xl:left-[700px]  xl:w-[500px]'>
+                        className='absolute top-10 left-0 md:left-[200px] md:top-80 lg:left-80 lg:top-36 z-50 w-96 xl:left-[700px]  xl:w-[500px]'>
 
                         <p className='bg-[#aab1e5b9] text-indigo-5 p-10 xl:p-20 xl:text-lg'>
                             Welcome to ArtFull, your destination for captivating landscape paintings! Dive into our collection featuring stunning mountain views and serene forest landscapes. Let your walls tell a story with our handcrafted canvases. Order now and bring the beauty of nature into your home.
@@ -110,7 +110,7 @@ const Banner = () => {
                         data-aos="fade-up"
                         data-aos-anchor-placement="center-bottom"
                         data-aos-duration="3000"
-                        className='absolute top-0 left-0 md:left-[200px] md:top-80 lg:left-80 lg:top-72 z-50 w-96 xl:left-[700px]  xl:w-[500px]'>
+                        className='absolute top-10 left-0 md:left-[200px] md:top-80 lg:left-80 lg:top-36 z-50 w-96 xl:left-[700px]  xl:w-[500px]'>
 
                         <p className='bg-[#aab1e5b9] text-indigo-5 p-10 xl:p-20 xl:text-lg'>
                             Welcome to ArtFull, your destination for captivating landscape paintings! Dive into our collection featuring stunning mountain views and serene forest landscapes. Let your walls tell a story with our handcrafted canvases. Order now and bring the beauty of nature into your home.
@@ -126,7 +126,7 @@ const Banner = () => {
                         data-aos="fade-up"
                         data-aos-anchor-placement="center-bottom"
                         data-aos-duration="3000"
-                        className='absolute top-0 left-0 md:left-[200px] md:top-80 lg:left-80 lg:top-72 z-50 w-96 xl:left-[700px]  xl:w-[500px]'>
+                        className='absolute top-10 left-0 md:left-[200px] md:top-80 lg:left-80 lg:top-36 z-50 w-96 xl:left-[700px]  xl:w-[500px]'>
 
                         <p className='bg-[#aab1e5b9] text-indigo-5 p-10 xl:p-20 xl:text-lg'>
                             Welcome to ArtFull, your destination for captivating landscape paintings! Dive into our collection featuring stunning mountain views and serene forest landscapes. Let your walls tell a story with our handcrafted canvases. Order now and bring the beauty of nature into your home.
